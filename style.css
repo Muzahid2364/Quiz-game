@@ -8,6 +8,7 @@
 }
 
 body {
+  
   background: #007bff;
 }
 
@@ -215,16 +216,26 @@ section .option_list .option:hover {
 }
 
 section .option_list .option.correct {
-  color: #fff;
+  background: rgb(126, 195, 255);
+  border: 3px solid #0b0b0b;
+
+  /*color: #fff;
   background: rgb(25, 235, 25);
   border: 1px solid #c3e6cb;
+  */
 }
 
 section .option_list .option.incorrect {
+background: rgb(126, 195, 255);
+  border: 3px solid #0b0b0b;
+
+
+  /*
   color: #fff;
   background: #e22131;
   border: 1px solid #f5c6cb;
-}
+  */
+} 
 
 section .option_list .option.disabled {
   pointer-events: none;

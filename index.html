@@ -5,7 +5,7 @@
 <head>
     <link rel="shortcut icon" href="quiz.png" type="image/x-icon">
     <meta charset="UTF-8">
-    <meta name="description" content="bit.ly/Quiz-Game1">
+    <meta name="description" content="Quiz-Game1">
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Muzahid">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +13,67 @@
     <link rel="stylesheet" href="style.css">
     <!-- FontAweome CDN Link for Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+   <style>
+#mail{
+  
+   color: azure;
+   text-align: center;
+   margin: 0 auto;
+   position: relative;
+   top: 250px;
+   background:linear-gradient(to right,blue,white,yellow);
+   height: 300px;
+   width: 340px;
+  
+}
+#mail input{
+  height: 60px;
+  width: 300px;
+  margin-bottom:30px ;
+  border-radius: 10px;
+  right: 16px;
+  position: relative;
+  font-size: 15px;
+  top: 30px;
+}
+::placeholder{
+    color: red;
+}
+label{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    color: red;
+    font-weight: bolder;
+    bottom: -10px;
+    position: relative;
+
+   
+}
+#send{
+    position: relative;
+    top: 20px;
+    padding: 13px;
+    border-radius: 10px;
+    width: 150px;
+    font-size: 15px;
+    background-color: aquamarine;
+    transition: 0.33s ease;
+}
+#send:hover{
+    background-color:aqua ;
+}
+#send:active{
+    background-color:rgb(0, 140, 255) ;
+}    
+
+   </style>
+
+
 </head>
 <body>
+    <div id="all"style="display:none">
     <!-- start Quiz button -->
     <div class="start_btn"><button>Start Quiz</button></div>
 
@@ -37,7 +96,7 @@
     <!-- Quiz Box -->
     <div class="quiz_box">
         <header>
-            <div class="title">Quiz game v3.4</div>
+            <div class="title">Quiz game v5.0</div>
             <div class="timer">
                 <div class="time_left_txt">Time Left</div>
                 <div class="timer_sec">10</div>
@@ -72,12 +131,41 @@
           
         </div>
         <div class="buttons">
-            <button class="restart">Replay Quiz</button>
-            <button class="quit">Quit Quiz</button>
+            <!-- <button class="restart"></button> -->
+            <button id="next" class="restart">Next</button>
+            <!--<button class="quit">Quit Quiz</button>-->
         </div>
     </div>
+<!--button  class="restart" -->
+    </div>
+
+
+    <div style="display: ;" id="mail">
+         <form action="https://formsubmit.co/muzahid0144181@gmail.com" method="POST" >
+     <label for="Name">Enter your Name:</label><br>
+     <input placeholder="Enter your name:" type="text" name="name" required><br>
+      <input type="value" id="val" name="value" readonly ><br>
+     <button id="send" type="submit">Send</button>
+</form>
+    </div>
+
+
 
     <script src="script.js"></script>
+    <script>
+     const next = document.querySelector('#next');
+     const mail = document.querySelector('#mail');
+     const all = document.querySelector('#all');
+      const body = document.querySelector('body');
+     next.addEventListener('click', () =>{
+       all.style.display = "none";
+       mail.style.display = "block"
+       body.style.backgroundColor = "rgb(5, 220, 248)"
+     })
+     
+
+
+    </script>
 </body>
 </html>
 </html>
