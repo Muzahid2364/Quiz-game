@@ -61,7 +61,7 @@ let questions = [
     numb: 9,
     question: "Who is the developer of this quiz game?",
     answer: "Muzahid",
-    options: ["Muzahid", "Donald Trump", "Team birnar's li", "Elon musk"],
+    options: ["Hasan web developer", "Donald Trump", "Team birnar's li", "Elon musk"],
   },
   {
     numb: 10,
@@ -114,7 +114,7 @@ let questions = [
     question:
       "Which district of Bangladesh is there with the border of India and Myanmar?",
     answer: "Rangamati",
-    options: ["Cox-Bazar", "Rangamati", "Bogura", "5-5 liters"],
+    options: ["Cox-Bazar", "Rangamati", "Bogura", "Sylhet"],
   },
 
   {
@@ -146,6 +146,120 @@ let questions = [
       "for(i=1;i>=10;i++){printf('Bangladesh')}",
       "for(i=1;10>=i;i++){printf('Bangladesh')}",
       "for(i=1;i==10;i++){printf('Bangladesh')}",
+    ],
+  },
+
+  {
+    numb: 21,
+    question: "Who is making the Web standards?",
+    answer: "The World Wide Web Consortium",
+    options: [
+      "Google",
+      "Microsoft",
+      "Mozilla",
+      "The World Wide Web Consortium ",
+    ],
+  },
+
+  {
+   numb: 22,
+    question: "Choose the correct HTML element for the largest heading:",
+    answer: "h1",
+    options: [
+      "h1",
+      "head",
+      "h6",
+      "heading",
+    ],
+  },
+{
+   numb: 23,
+    question: "What is the correct HTML element for inserting a line break?",
+    answer: "br",
+    options: [
+      "hr",
+      "lb",
+      "break",
+      "br",
+    ],
+  },
+{
+   numb: 24,
+    question: "What is the correct HTML for adding a background color?",
+    answer: "body style='background-color:red;'",
+    options: [
+      "body bg='yellow'",
+      "background 'yellow' background",
+      "no answer have",
+      " body style='background-color:red;'",
+    ],
+  },
+{
+   numb: 25,
+    question: "Choose the correct HTML element to define important text",
+    answer: "important",
+    options: [
+      "i",
+      "strong",
+      "b",
+      "important",
+    ],
+  },
+
+   {
+    numb: 26,
+    question: "Choose the correct HTML element to define emphasized text",
+    answer: "em",
+    options: [
+      "i",
+      "italic",
+      "bold",
+      "em",
+    ],
+  },
+
+  {
+   numb: 27,
+    question: "What is the correct HTML for creating a hyperlink?",
+    answer: "a href='http:www.quiz-game1.com'",
+    options: [
+      "a url='http:www.quiz-game1.com'",
+      "a href='http:www.quiz-game1.com'",
+      "http:www.quiz-game1.com",
+      "a name='http:www.quiz-game1.com'",
+    ],
+  },
+{
+   numb: 28,
+    question: "What is the correct HTML for making a checkbox?",
+    answer: "input type='checkbox'",
+    options: [
+      "checkbox",
+      "check",
+      "input type='check'",
+      "input type='checkbox'",
+    ],
+  },
+{
+   numb: 29,
+    question: "What is the correct HTML for making a text input field?",
+    answer: "input type='text'",
+    options: [
+      "input type='textfield'",
+      "input type='text'",
+      "textfield",
+      " textinput type='text'",
+    ],
+  },
+{
+   numb: 30,
+    question: "What is the correct HTML for making a drop-down list?",
+    answer: "select",
+    options: [
+      "input type = 'dropdown'",
+      "list",
+      "select",
+      "list",
     ],
   },
 ];
@@ -403,7 +517,7 @@ function startTimer(time) {
 }
 
 function startTimerLine(time) {
-  counterLine = setInterval(timer, 29);
+  counterLine = setInterval(timer, 22);
   function timer() {
     time += 1; //upgrading time value with 1
     time_line.style.width = time + "px"; //increasing width of time_line with px by time value
