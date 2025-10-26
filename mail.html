@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One-Time Access Gate with URL Bypass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+  
+ 
+    <link rel="shortcut icon" href="quiz.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="description" content="Quiz-Game1">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Muzahid">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Quiz Game </title>
+
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="pc.css">
+    <!-- FontAweome CDN Link for Icons -->
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+   <style>
+#mail{
+  
+   color: azure;
+   text-align: center;
+   margin: 0 auto;
+   position: relative;
+   top: 200px;
+   background:linear-gradient(to right,blue,white,yellow);
+   height: 300px;
+   width: 340px;
+  
+}
+#mail input{
+  height: 60px;
+  width: 300px;
+  margin-bottom:30px ;
+  border-radius: 10px;
+  right: 16px;
+  position: relative;
+  font-size: 15px;
+  top: 30px;
+}
+::placeholder{
+    color: red;
+}
+label{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    color: red;
+    font-weight: bolder;
+    bottom: -10px;
+    position: relative;
+
+   
+}
+#send{
+    position: relative;
+    top: 20px;
+    padding: 13px;
+    border-radius: 10px;
+    width: 150px;
+    font-size: 15px;
+    background-color: aquamarine;
+    transition: 0.33s ease;
+}
+#send:hover{
+    background-color:aqua ;
+}
+#send:active{
+    background-color:rgb(0, 140, 255) ;
+}    
+.clock{
+   
+    /* transform: translateX(-50%) translateY(-50%); */
+    color: #2317fe;
+    font-weight: bold;
+    font-family: Orbitron;
+    font-size: 17px;
+}
+#dark{
+    text-decoration: none;
+    position: relative
+    ;
+    right:14px;
+    color: rgb(255, 255, 255);
+    background-color: black;
+    transition: 0.4s;
+    padding: 3px;
+
+}
+#white{
+    text-decoration: none;
+    position: relative;
+    top: 34px;
+    right: 55px;
+    padding: 3px;
+    background-color: aqua;
+    color: black;
+    transition: 0.4s;
+
+}
+#dark:hover{
+    background-color: rgb(70, 67, 67);
+}
+#white:hover{
+    background-color: rgb(128, 235, 235);
+}
+   </style>
+
+
+</head>
+  <body class="min-h-screen flex items-center justify-center p-4">
+    <div
+      id="container"
+      class="bg-white shadow-2xl rounded-xl p-8 md:p-12 w-full max-w-lg"
+    >
+      <!-- Content visible on FIRST VISIT / OVERRIDE VISIT -->
+      <div
+        id="allowed-content"
+        class="hidden text-center transition-opacity duration-500"
+      >
+       
+<body>
+    <div id="all">
+    <!-- start Quiz button -->
+    <div class="start_btn"><button>Start Quiz</button></div>
+
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. You will have only <span>10 seconds</span> per questions.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">Quiz v8.0</div>
+            <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+            
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">10</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+          
+            </div>
+            <div class="option_list">
+        
+            </div>
+        </section>
+
+      
+        <footer>
+            <a id="dark" href="#">dark</a>
+            <a id="white" href="#">Blue</a>
+            
+            <div style="position: relative;right: 40px;" class="total_que">
+            </div>
+            <button style="position: relative;right: 30px;font-size: 10px;" class="next_btn">Next Que</button>
+        </footer>
+    </div>
+
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+          
+        </div>
+        <div class="buttons">
+            <!-- <button class="restart"></button> -->
+            <button id="next" class="restart">Next</button>
+            <!--<button class="quit">Quit Quiz</button>-->
+        </div>
+    </div>
+<!--button  class="restart" -->
+    </div>
+
+
+    <div style="display: none;" id="mail">
+        <form action="https://formsubmit.co/muzahid0144181@gmail.com" method="POST">
+     <label for="Name">Enter your Name:</label><br>
+     <input placeholder="Enter your name:" type="text" name="name" required><br>
+      <input type="value" id="val" name="value" readonly ><br>
+     <button id="send" type="submit">Send</button>
+</form>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+     const next = document.querySelector('#next');
+     const mail = document.querySelector('#mail');
+     const all = document.querySelector('#all');
+      const body = document.querySelector('body');
+       const black = document.querySelector('#dark');
+     const white = document.querySelector('#white');
+     const line = document.querySelector('.time_line');
+     next.addEventListener('click', () =>{
+       all.style.display = "none";
+       mail.style.display = "block"
+       body.style.backgroundColor = "rgb(5, 220, 248)"
+     })
+     black.addEventListener('click', () => {
+        body.style.backgroundColor = "#000";
+        body.style.transition = "0.5s"
+        line.style.backgroundColor = "#000"
+     })
+     white.addEventListener('click', () => {
+        body.style.backgroundColor = "rgb(0, 123, 255)";
+         body.style.transition = "0.5s"
+         line.style.backgroundColor = "rgb(0, 123, 255)"
+     })
+     
+   function showTime(){
+    var date = new Date();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "AM";
+    
+    if(h == 0){
+        h = 12;
+    }
+    
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+    
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+    
+    setTimeout(showTime, 1000);
+    
+}
+
+showTime();
+
+    </script>
+
+
+
+
+
+      </div>
+      <!-- <div
+        id="allowed-content"
+        class="hidden text-center transition-opacity duration-500"
+      >
+        <h1 class="text-3xl font-bold text-emerald-700 mb-4">
+          Access Granted!
+        </h1>
+        <p
+          id="access-reason"
+          class="text-lg font-semibold text-emerald-600 mb-2"
+        ></p>
+        <p class="text-gray-600 mb-6">
+          Welcome to the content. This visit is now recorded, and you will be
+          blocked upon return.
+        </p>
+
+        <div
+          class="space-y-4 bg-emerald-50 p-6 rounded-lg border border-emerald-300 shadow-inner"
+        >
+          <h2 class="text-xl font-semibold text-emerald-700">
+            Quiz Game Content
+          </h2>
+          <p>
+            <strong class="text-lg"
+              >This is where your Quiz Game HTML goes.</strong
+            >
+          </p>
+          <img
+            src="https://placehold.co/400x150/059669/ffffff?text=QUIZ+GAME+ACCESS"
+            alt="Quiz Game Placeholder"
+            class="w-full rounded-lg shadow-md"
+          />
+        </div>
+
+        <p class="mt-4 text-sm text-red-500 font-semibold">
+          If you refresh or return later, the denial message will be shown.
+        </p>
+      </div> -->
+
+      <!-- Content visible on SECOND (and subsequent) VISIT -->
+      <div
+        id="denied-content"
+        class="hidden text-center transition-opacity duration-500"
+      >
+        <svg
+          class="mx-auto h-16 w-16 text-red-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+          />
+        </svg>
+        <h1 class="text-3xl font-bold text-red-700 mt-4 mb-3">
+          Access Denied!
+        </h1>
+        <p class="text-gray-600 mb-6">
+          Your browser indicates you have already completed your one permitted
+          visit.
+        </p>
+
+        <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
+          <p class="font-semibold text-yellow-800">
+            Developer Override Instructions:
+          </p>
+          <p class="text-sm text-yellow-700 mt-2">
+            To grant a one-time bypass, the developer must provide you with a
+            special URL containing the secret token:
+          </p>
+          <code
+            class="block mt-2 bg-yellow-200 p-2 rounded text-sm font-mono break-all"
+          >
+            [YOUR_WEBSITE_URL]?token=QUIZ_RESET_2025
+          </code>
+        </div>
+
+        <p class="mt-4 text-xs text-gray-500 italic">
+          (Note: Clearing browser site data will also reset the access lock.)
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // --- Configuration ---
+      const VISIT_KEY = "websiteHasVisited";
+      // Define a simple, fixed token for the developer override
+      const DEV_OVERRIDE_TOKEN = "QUIZ_RESET_2025";
+
+      // DOM Elements
+      const allowedContent = document.getElementById("allowed-content");
+      const deniedContent = document.getElementById("denied-content");
+      const accessReason = document.getElementById("access-reason");
+
+      /**
+       * Checks if the URL contains the secret override token.
+       * @returns {string|null} The token string if found, otherwise null.
+       */
+      function getUrlToken() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("token");
+      }
+
+      /**
+       * The core function to check for the visit flag and apply the lock or override.
+       */
+      function checkVisitStatus() {
+        const hasVisited = localStorage.getItem(VISIT_KEY) === "true";
+        const urlToken = getUrlToken();
+
+        let accessGranted = false;
+        let reason = "";
+
+        // --- Access Logic ---
+
+        if (hasVisited) {
+          // User has visited before. Check if they have the token.
+          if (urlToken === DEV_OVERRIDE_TOKEN) {
+            // 1. URL TOKEN BYPASS: Grant access, then reset the lock for one more visit.
+            accessGranted = true;
+            reason = "One-Time Token Used (Developer Override)";
+
+            // Crucially, delete the visit flag to allow a single, new visit.
+            localStorage.removeItem(VISIT_KEY);
+
+            // After removing the token, redirect to the clean URL to prevent repeated bypass
+            // and to ensure the new lock is set without the token present.
+            setTimeout(() => {
+              // Use replaceState to remove the token from the history immediately
+              const cleanUrl =
+                window.location.origin + window.location.pathname;
+              window.history.replaceState(null, "", cleanUrl);
+              console.log("Token removed from URL. Visit lock reset.");
+            }, 500);
+          } else {
+            // 2. DENIED: Lock is active, no valid token.
+            accessGranted = false;
+          }
+        } else {
+          // 3. FIRST VISIT: Grant access.
+          accessGranted = true;
+          reason = "First Time Access";
+        }
+
+        // --- Display Logic ---
+
+        if (accessGranted) {
+          // Show allowed content and set the lock for the NEXT visit
+          // accessReason.textContent = reason;
+          deniedContent.classList.add("hidden");
+          allowedContent.classList.remove("hidden");
+
+          // Set the lock so the NEXT time they visit, they are blocked
+          localStorage.setItem(VISIT_KEY, "true");
+          console.log("Access Granted. Lock set for future visits.");
+
+          // --- INTEGRATION POINT ---
+          // Start your quiz game here.
+          // Example: initQuizGame();
+        } else {
+          // Show denied content
+          allowedContent.classList.add("hidden");
+          deniedContent.classList.remove("hidden");
+          console.warn("Access Denied: Visit lock is active.");
+        }
+      }
+
+      // Run the check when the page loads
+      window.onload = checkVisitStatus;
+    </script>
+  </body>
+</html>
